@@ -1,495 +1,645 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0a0a0a;
-    color: #ffffff;
-    line-height: 1.6;
-}
-
-
-/* Navigation */
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 20px 8%;
-
-    background: rgba(10, 10, 10, 0.9);
-
-    backdrop-filter: blur(10px);
-
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #00d9ff;
-}
-
-
-/* Hero */
-
-.hero {
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 100px 20px 60px;
-
-    background:
-        radial-gradient(circle at top right, #173b46, transparent 35%),
-        radial-gradient(circle at bottom left, #161d42, transparent 35%),
-        #080808;
-}
-
-.hero-content {
-    max-width: 900px;
-}
-
-.small-title {
-    color: #00d9ff;
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-.hero h1 {
-    font-size: clamp(45px, 7vw, 80px);
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: #00d9ff;
-}
-
-.hero h2 {
-    font-size: 25px;
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    color: #bcbcbc;
-    font-size: 17px;
-}
-
-
-/* Buttons */
-
-.buttons {
-    margin-top: 35px;
-
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn,
-.linkedin-btn {
-    display: inline-block;
-
-    padding: 13px 25px;
-
-    border-radius: 30px;
-
-    background: #00d9ff;
-
-    color: #000;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-.btn:hover,
-.linkedin-btn:hover {
-    transform: translateY(-3px);
-}
-
-.btn.secondary {
-    background: transparent;
-    border: 1px solid #00d9ff;
-    color: #00d9ff;
-}
-
-
-/* Sections */
-
-section {
-    padding: 100px 8%;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-}
-
-.section-title {
-    text-align: center;
-
-    font-size: 40px;
-
-    margin-bottom: 50px;
-}
-
-.section-title::after {
-    content: "";
-
-    display: block;
-
-    width: 60px;
-    height: 4px;
-
-    background: #00d9ff;
-
-    margin: 15px auto;
-}
-
-
-/* About */
-
-.about-text {
-    max-width: 850px;
-
-    margin: 0 auto 20px;
-
-    text-align: center;
-
-    color: #c4c4c4;
-
-    font-size: 17px;
-}
-
-
-/* Education */
-
-.education-card {
-    padding: 30px;
-
-    margin-bottom: 20px;
-
-    border: 1px solid #222;
-
-    border-radius: 15px;
-
-    background: #111;
-
-    transition: 0.3s;
-}
-
-.education-card:hover {
-    transform: translateY(-5px);
-    border-color: #00d9ff;
-}
-
-.education-card h3 {
-    font-size: 23px;
-}
-
-.education-card h4 {
-    color: #00d9ff;
-    margin: 5px 0;
-}
-
-.education-card p {
-    color: #aaa;
-}
-
-.score {
-    margin-top: 10px;
-}
-
-
-/* Skills */
-
-.skills-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-}
-
-.skill-card {
-    background: #111;
-
-    border: 1px solid #222;
-
-    border-radius: 15px;
-
-    padding: 25px;
-
-    text-align: center;
-
-    transition: 0.3s;
-}
-
-.skill-card:hover {
-    transform: translateY(-8px);
-    border-color: #00d9ff;
-}
-
-.skill-card h3 {
-    color: #00d9ff;
-    margin-bottom: 15px;
-}
-
-.skill-card p {
-    color: #bbb;
-}
-
-
-/* Projects */
-
-.projects-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-.project-card {
-    background: #111;
-
-    border: 1px solid #222;
-
-    border-radius: 18px;
-
-    padding: 30px;
-
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-
-    border-color: #00d9ff;
-}
-
-.project-number {
-    font-size: 14px;
-    color: #00d9ff;
-    margin-bottom: 15px;
-}
-
-.project-card h3 {
-    font-size: 25px;
-    margin-bottom: 8px;
-}
-
-.project-card h4 {
-    color: #aaa;
-    font-weight: normal;
-    margin-bottom: 15px;
-}
-
-.project-card p {
-    color: #aaa;
-    margin-bottom: 20px;
-}
-
-.project-card span {
-    display: inline-block;
-
-    padding: 6px 12px;
-
-    border-radius: 20px;
-
-    background: #182b30;
-
-    color: #00d9ff;
-
-    font-size: 13px;
-}
-
-
-/* Training */
-
-.training-card {
-    max-width: 800px;
-
-    margin: auto;
-
-    padding: 35px;
-
-    background: #111;
-
-    border-radius: 18px;
-
-    border: 1px solid #222;
-
-    text-align: center;
-}
-
-.training-card h3 {
-    color: #00d9ff;
-
-    font-size: 28px;
-
-    margin-bottom: 15px;
-}
-
-.training-card p {
-    color: #aaa;
-}
-
-
-/* Soft Skills */
-
-.soft-skills {
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 15px;
-}
-
-.soft-skills span {
-    padding: 12px 20px;
-
-    border: 1px solid #333;
-
-    border-radius: 30px;
-
-    color: #ccc;
-
-    transition: 0.3s;
-}
-
-.soft-skills span:hover {
-    border-color: #00d9ff;
-    color: #00d9ff;
-}
-
-
-/* Contact */
-
-.contact-card {
-    max-width: 700px;
-
-    margin: auto;
-
-    padding: 40px;
-
-    text-align: center;
-
-    background: #111;
-
-    border-radius: 20px;
-
-    border: 1px solid #222;
-}
-
-.contact-card h3 {
-    font-size: 30px;
-
-    margin-bottom: 15px;
-}
-
-.contact-card p {
-    color: #aaa;
-
-    margin-bottom: 15px;
-}
-
-.contact-card a {
-    color: #00d9ff;
-}
-
-.linkedin-btn {
-    margin-top: 15px;
-}
-
-
-/* Footer */
-
-footer {
-    text-align: center;
-
-    padding: 30px;
-
-    background: #050505;
-
-    color: #777;
-}
-
-
-/* Mobile */
-
-@media (max-width: 900px) {
-
-    nav ul {
-        display: none;
+/**
+ * Thomandru Nikhil - Portfolio JavaScript
+ * Advanced Graphical Edition:
+ * - Interactive AI Neural Network Canvas Background
+ * - Dynamic Role Typewriter & Text Scramble
+ * - Mouse Spotlight & 3D Perspective Tilt Card System
+ * - Animated Metric Counters with Easing
+ * - Viewport Scroll Reading Progress Bar
+ * - Accessible Theme Toggle, Modals, Clipboard & Form Handling
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // -------------------------------------------------------------------------
+  // 1. Theme Engine (Dark/Light) with LocalStorage & Live Canvas Adaptability
+  // -------------------------------------------------------------------------
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeToggleIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+  const currentTheme = localStorage.getItem('tn_portfolio_theme') || 
+    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('tn_portfolio_theme', theme);
+    if (themeToggleIcon) {
+      if (theme === 'light') {
+        themeToggleIcon.className = 'fa-solid fa-sun';
+        themeToggleBtn.setAttribute('title', 'Switch to Dark Mode');
+      } else {
+        themeToggleIcon.className = 'fa-solid fa-moon';
+        themeToggleBtn.setAttribute('title', 'Switch to Light Mode');
+      }
+    }
+  };
+
+  applyTheme(currentTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = activeTheme === 'light' ? 'dark' : 'light';
+      applyTheme(newTheme);
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // 2. Scroll Reading Progress Bar & Header Scroll State
+  // -------------------------------------------------------------------------
+  const scrollProgressBar = document.getElementById('scroll-progress');
+  const header = document.querySelector('.header');
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  const updateScrollState = () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    
+    // Progress Bar
+    if (scrollProgressBar && docHeight > 0) {
+      const progressPercent = Math.min(100, Math.max(0, (scrollY / docHeight) * 100));
+      scrollProgressBar.style.width = `${progressPercent}%`;
     }
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+    // Sticky Header
+    if (header) {
+      if (scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
+    // Back to top button
+    if (backToTopBtn) {
+      if (scrollY > 350) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
     }
-}
+  };
 
+  window.addEventListener('scroll', updateScrollState, { passive: true });
+  updateScrollState();
 
-@media (max-width: 600px) {
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-    section {
-        padding: 80px 6%;
+  // -------------------------------------------------------------------------
+  // 3. Interactive AI Neural Network Canvas Background (Hero Section)
+  // -------------------------------------------------------------------------
+  const canvas = document.getElementById('neural-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let animationFrameId = null;
+    let width = 0;
+    let height = 0;
+    let particles = [];
+    const particleCount = window.innerWidth < 768 ? 32 : 65;
+    const maxConnectionDistance = 140;
+
+    const mouse = {
+      x: null,
+      y: null,
+      radius: 160
+    };
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.75;
+        this.vy = (Math.random() - 0.5) * 0.75;
+        this.radius = Math.random() * 2 + 1.5;
+        this.baseRadius = this.radius;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        // Bounce on borders
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+
+        // Mouse proximity reaction
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < mouse.radius) {
+            const force = (mouse.radius - dist) / mouse.radius;
+            const dirX = dx / dist;
+            const dirY = dy / dist;
+            this.x -= dirX * force * 1.5;
+            this.y -= dirY * force * 1.5;
+            this.radius = this.baseRadius * (1 + force * 0.8);
+          } else {
+            this.radius = this.baseRadius;
+          }
+        }
+      }
+
+      draw() {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = isLight ? 'rgba(99, 102, 241, 0.75)' : 'rgba(56, 189, 248, 0.85)';
+        ctx.fill();
+      }
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
+    const initCanvas = () => {
+      width = canvas.parentElement.offsetWidth;
+      height = canvas.parentElement.offsetHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    };
+
+    const drawLines = () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxConnectionDistance) {
+            const alpha = (1 - dist / maxConnectionDistance) * (isLight ? 0.22 : 0.28);
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = isLight 
+              ? `rgba(99, 102, 241, ${alpha})`
+              : `rgba(6, 182, 212, ${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+    };
+
+    const animate = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      drawLines();
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    window.addEventListener('resize', () => {
+      initCanvas();
+    });
+
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      heroSection.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
     }
 
-    .hero h1 {
-        font-size: 45px;
-    }
+    initCanvas();
+    animate();
 
-    .hero h2 {
-        font-size: 20px;
-    }
+    // Pause animation when hero is not in view or tab is inactive to save battery
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationFrameId);
+      } else {
+        animate();
+      }
+    });
 
-}
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cancelAnimationFrame(animationFrameId);
+          animate();
+        } else {
+          cancelAnimationFrame(animationFrameId);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (heroSection) observer.observe(heroSection);
+  }
+
+  // -------------------------------------------------------------------------
+  // 4. Dynamic Role Typewriter Effect (Hero Section)
+  // -------------------------------------------------------------------------
+  const roleTextEl = document.getElementById('dynamic-role-text');
+  if (roleTextEl) {
+    const roles = [
+      'Aspiring AI & Generative AI Developer',
+      'B.Tech CSE Student @ Dhanekula',
+      'Problem Solver in C, Java & Python',
+      'Builder of Practical AI Applications'
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 70;
+
+    const typeRole = () => {
+      const currentRole = roles[roleIndex];
+
+      if (isDeleting) {
+        roleTextEl.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 35;
+      } else {
+        roleTextEl.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 75;
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        // Pause at end of text
+        typeSpeed = 2200;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 400;
+      }
+
+      setTimeout(typeRole, typeSpeed);
+    };
+
+    typeRole();
+  }
+
+  // -------------------------------------------------------------------------
+  // 5. Mouse Spotlight & 3D Tilt Card Interaction (Linear / Vercel Aesthetic)
+  // -------------------------------------------------------------------------
+  const interactiveCards = document.querySelectorAll('[data-spotlight="true"]');
+
+  interactiveCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      // If card has 3D tilt enabled
+      if (card.getAttribute('data-tilt') === 'true') {
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -6; // max 6 deg
+        const rotateY = ((x - centerX) / centerX) * 6;  // max 6 deg
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (card.getAttribute('data-tilt') === 'true') {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      }
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // 6. Animated Metrics Counter (Roll Up)
+  // -------------------------------------------------------------------------
+  const metricValues = document.querySelectorAll('.metric-val[data-target]');
+  let metricsAnimated = false;
+
+  const animateMetrics = () => {
+    metricValues.forEach(el => {
+      const targetStr = el.getAttribute('data-target');
+      const targetNum = parseInt(targetStr, 10);
+      const suffix = el.getAttribute('data-suffix') || '';
+      
+      if (isNaN(targetNum)) return;
+
+      const duration = 1800; // ms
+      const startTime = performance.now();
+
+      const updateCount = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Easing out cubic
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentVal = Math.floor(easeOut * targetNum);
+
+        el.textContent = `${currentVal}${suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        } else {
+          el.textContent = `${targetNum}${suffix}`;
+        }
+      };
+
+      requestAnimationFrame(updateCount);
+    });
+  };
+
+  const metricsSection = document.querySelector('.metrics-bar');
+  if (metricsSection) {
+    const metricsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !metricsAnimated) {
+          metricsAnimated = true;
+          animateMetrics();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    metricsObserver.observe(metricsSection);
+  }
+
+  // -------------------------------------------------------------------------
+  // 7. Mobile Navigation Drawer
+  // -------------------------------------------------------------------------
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const closeDrawerBtn = document.getElementById('close-drawer-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const drawerOverlay = document.getElementById('drawer-overlay');
+  const drawerLinks = document.querySelectorAll('.drawer-nav a');
+
+  const openDrawer = () => {
+    if (mobileDrawer) mobileDrawer.classList.add('open');
+    if (drawerOverlay) drawerOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeDrawer = () => {
+    if (mobileDrawer) mobileDrawer.classList.remove('open');
+    if (drawerOverlay) drawerOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openDrawer);
+  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  // -------------------------------------------------------------------------
+  // 8. ScrollSpy (Active Navigation Indicator)
+  // -------------------------------------------------------------------------
+  const sections = document.querySelectorAll('section[id]');
+  const desktopNavLinks = document.querySelectorAll('.nav-menu .nav-link');
+
+  const updateActiveNav = () => {
+    const scrollY = window.scrollY + 140;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        desktopNavLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+
+        drawerLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  };
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+  // -------------------------------------------------------------------------
+  // 9. Toast Notification System
+  // -------------------------------------------------------------------------
+  const toast = document.getElementById('toast-notification');
+  const toastMsg = document.getElementById('toast-message');
+  let toastTimer = null;
+
+  const showToast = (message) => {
+    if (!toast || !toastMsg) return;
+    toastMsg.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3200);
+  };
+
+  // -------------------------------------------------------------------------
+  // 10. Copy to Clipboard Utility (Email & Phone)
+  // -------------------------------------------------------------------------
+  const copyButtons = document.querySelectorAll('[data-copy-target]');
+
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const textToCopy = btn.getAttribute('data-copy-target');
+      const label = btn.getAttribute('data-copy-label') || 'Information';
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          showToast(`${label} copied to clipboard!`);
+        }).catch(() => {
+          fallbackCopy(textToCopy, label);
+        });
+      } else {
+        fallbackCopy(textToCopy, label);
+      }
+    });
+  });
+
+  const fallbackCopy = (text, label) => {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showToast(`${label} copied to clipboard!`);
+    } catch (err) {
+      showToast(`Please copy manually: ${text}`);
+    }
+    document.body.removeChild(textArea);
+  };
+
+  // -------------------------------------------------------------------------
+  // 11. Project Modal Details (Exact CV Information)
+  // -------------------------------------------------------------------------
+  const projectModal = document.getElementById('project-modal');
+  const modalTitle = document.getElementById('modal-project-title');
+  const modalCategory = document.getElementById('modal-project-category');
+  const modalDesc = document.getElementById('modal-project-desc');
+  const modalFeatures = document.getElementById('modal-project-features');
+  const modalTags = document.getElementById('modal-project-tags');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+
+  const projectDatabase = {
+    'gramcare': {
+      title: 'GramCare AI ‒ Multilingual Rural Healthcare Screening Platform',
+      category: 'AI & Healthcare Accessibility',
+      desc: 'An AI-focused healthcare screening platform designed specifically to support rural users through multilingual and accessible digital interaction. It helps overcome regional language barriers to provide timely initial health guidance.',
+      features: [
+        'Multilingual communication support assisting rural users in their native language (Telugu, Hindi, and English)',
+        'Intuitive symptom screening flow engineered for accessible, low-bandwidth interaction',
+        'Direct application of Artificial Intelligence to solve regional healthcare access challenges',
+        'Extensible architecture ready for voice guidance and rural digital literacy'
+      ],
+      tags: ['Artificial Intelligence', 'Multilingual NLP', 'Healthcare Tech', 'Python', 'Digital Inclusion']
+    },
+    'debugpro': {
+      title: 'DebugPro ‒ Program Debugging Tool',
+      category: 'Developer Tooling & Software Engineering',
+      desc: 'A software development tool designed to assist users in identifying and resolving programming errors, improving debugging and problem-solving efficiency.',
+      features: [
+        'Automated detection of common runtime, compilation, and logical software bugs',
+        'Clear error diagnostics accompanied by intelligent recommendations for resolution',
+        'Improves developer debugging productivity and coding confidence',
+        'Supports fundamental programming languages including C, Java, and Python'
+      ],
+      tags: ['Software Development', 'Error Resolution', 'Debugging Tool', 'Code Quality', 'Problem Solving']
+    },
+    'weather': {
+      title: 'Weather Forecast Application',
+      category: 'Web Application & Location Services',
+      desc: 'Application for checking weather information for different cities, providing users with convenient location-based forecast details.',
+      features: [
+        'Instant multi-city weather lookup delivering temperature, precipitation, and atmospheric conditions',
+        'Location-based forecast details organized for high readability on any device',
+        'Clean, responsive user interface built using modern web technologies',
+        'Efficient client-side data handling and interactive UI updates'
+      ],
+      tags: ['Web Technologies', 'Weather API', 'Location-Based', 'HTML/CSS/JS', 'Responsive Design']
+    }
+  };
+
+  const openProjectModal = (projectId) => {
+    const data = projectDatabase[projectId];
+    if (!data || !projectModal) return;
+
+    modalTitle.textContent = data.title;
+    modalCategory.textContent = data.category;
+    modalDesc.textContent = data.desc;
+
+    modalFeatures.innerHTML = '';
+    data.features.forEach(feat => {
+      const li = document.createElement('li');
+      li.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--accent-emerald); margin-right: 8px;"></i> ${feat}`;
+      modalFeatures.appendChild(li);
+    });
+
+    modalTags.innerHTML = '';
+    data.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'project-tag';
+      span.textContent = tag;
+      modalTags.appendChild(span);
+    });
+
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeProjectModal = () => {
+    if (projectModal) {
+      projectModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  document.querySelectorAll('[data-project-target]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projId = btn.getAttribute('data-project-target');
+      openProjectModal(projId);
+    });
+  });
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProjectModal);
+  if (projectModal) {
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) closeProjectModal();
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // 12. Contact Form Handling (Validation + Direct Mailto Composer)
+  // -------------------------------------------------------------------------
+  const contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nameInput = document.getElementById('contact-name');
+      const emailInput = document.getElementById('contact-email');
+      const subjectInput = document.getElementById('contact-subject');
+      const messageInput = document.getElementById('contact-message');
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const subject = subjectInput.value.trim() || 'Portfolio Inquiry';
+      const message = messageInput.value.trim();
+
+      if (!name || !email || !message) {
+        showToast('Please fill in all required fields.');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showToast('Please provide a valid email address.');
+        return;
+      }
+
+      // Open mailto composer directly to Thomandru Nikhil
+      const mailtoUrl = `mailto:nikhilthomandru@gmail.com?subject=${encodeURIComponent(`[Portfolio Contact] ${subject} - from ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+
+      window.location.href = mailtoUrl;
+
+      showToast('Opening your email client to send message...');
+      contactForm.reset();
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // 13. Keyboard Escape Handler
+  // -------------------------------------------------------------------------
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeProjectModal();
+      closeDrawer();
+    }
+  });
+});
