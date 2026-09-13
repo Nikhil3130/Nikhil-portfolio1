@@ -1,132 +1,181 @@
-// MOBILE MENU
+/* ===============================
+   MOBILE MENU
+================================ */
 
-const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector("nav");
 
-menuBtn.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+if (menuBtn) {
 
-    const icon = menuBtn.querySelector("i");
+    menuBtn.addEventListener("click", () => {
 
-    if (navMenu.classList.contains("active")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-xmark");
-    } else {
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
-    }
-});
-
-
-// CLOSE MENU WHEN LINK IS CLICKED
-
-document.querySelectorAll("#navMenu a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navMenu.classList.remove("active");
+        nav.classList.toggle("open");
 
         const icon = menuBtn.querySelector("i");
 
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-xmark");
+
+    });
+
+}
+
+
+/* ===============================
+   CLOSE MOBILE MENU
+================================ */
+
+document.querySelectorAll("nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        nav.classList.remove("open");
+
+        const icon = menuBtn?.querySelector("i");
+
+        if (icon) {
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
 
     });
 
 });
 
 
-// THEME BUTTON
+/* ===============================
+   DARK / LIGHT MODE
+================================ */
 
 const themeBtn = document.getElementById("themeBtn");
 
-themeBtn.addEventListener("click", () => {
+if (themeBtn) {
 
-    document.body.classList.toggle("light-mode");
+    themeBtn.addEventListener("click", () => {
 
-    const icon = themeBtn.querySelector("i");
+        document.body.classList.toggle("light");
 
-    if (document.body.classList.contains("light-mode")) {
+        const icon = themeBtn.querySelector("i");
 
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
+        if (document.body.classList.contains("light")) {
 
-    } else {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
 
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
+        } else {
 
-    }
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
 
-});
-
-
-// SCROLL REVEAL
-
-const cards = document.querySelectorAll(
-    ".about-card, .skill-card, .project-card, .certificate-card, .achievement"
-);
-
-const observer = new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("show");
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.1
-    }
-);
-
-
-cards.forEach(card => {
-
-    card.classList.add("hidden");
-
-    observer.observe(card);
-
-});
-
-
-// ACTIVE NAVIGATION
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".navbar nav a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.clientHeight;
-
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-        ) {
-            current = section.getAttribute("id");
         }
 
     });
 
-    navLinks.forEach(link => {
+}
 
-        link.classList.remove("active");
 
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
+/* ===============================
+   ACTIVE NAVIGATION
+================================ */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const links =
+    document.querySelectorAll("nav a");
+
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    links.forEach(link => {
+
+                        link.classList.remove("active");
+
+                    });
+
+
+                    const active =
+                        document.querySelector(
+                            `nav a[href="#${entry.target.id}"]`
+                        );
+
+                    if (active) {
+
+                        active.classList.add("active");
+
+                    }
+
+                }
+
+            });
+
+        },
+
+        {
+            rootMargin:
+                "-35% 0px -55% 0px"
         }
 
-    });
+    );
+
+
+sections.forEach(section => {
+
+    observer.observe(section);
+
+});
+
+
+/* ===============================
+   SCROLL REVEAL
+================================ */
+
+const revealItems =
+    document.querySelectorAll(
+        ".glass-card, .skill, .project"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "show"
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealItems.forEach(item => {
+
+    item.classList.add("reveal");
+
+    revealObserver.observe(item);
 
 });
