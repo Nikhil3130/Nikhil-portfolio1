@@ -925,3 +925,75 @@ footer p {
         padding: 30px 20px;
     }
 }
+/* JAVASCRIPT ANIMATIONS */
+
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.hidden.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar nav a.active {
+    color: #00ffae;
+}
+
+
+/* LIGHT MODE */
+
+body.light-mode {
+    background: #f4f7fb;
+    color: #101522;
+}
+
+body.light-mode .navbar {
+    background: rgba(244,247,251,.85);
+}
+
+body.light-mode .navbar nav a {
+    color: #4b5565;
+}
+
+body.light-mode .hero h2 {
+    color: #202838;
+}
+
+body.light-mode .hero-text,
+body.light-mode .about-card p,
+body.light-mode .project-card p {
+    color: #596477;
+}
+
+body.light-mode .about-card,
+body.light-mode .skill-card,
+body.light-mode .certificate-card,
+body.light-mode .achievement,
+body.light-mode .education-card {
+    background: white;
+    border-color: #e2e7ef;
+}
+
+body.light-mode .project-card {
+    background: white;
+}
+
+body.light-mode .dark-section {
+    background: #eef2f7;
+}
+
+body.light-mode .code-card {
+    background: #101725;
+    color: white;
+}
+
+body.light-mode .section-title h2,
+body.light-mode .about-card h3,
+body.light-mode .skill-card h3,
+body.light-mode .project-card h3,
+body.light-mode .certificate-card h3 {
+    color: #101522;
+}
