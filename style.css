@@ -1532,3 +1532,29 @@ footer {
     }
 
 }
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.light {
+    --bg: #eef5f8;
+    --panel: rgba(255,255,255,.85);
+    --text: #0a1724;
+    --muted: #536474;
+    --line: rgba(0,120,150,.2);
+}
+
+body.light .navbar {
+    background: rgba(255,255,255,.88);
+}
+
+body.light .hero-card {
+    background: rgba(255,255,255,.85);
+}
